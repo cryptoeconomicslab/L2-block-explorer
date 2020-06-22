@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">Welcome to L2 Block Expolorer!</h1>
+        <h1 className="title">Welcome to L2 Block Expolorer</h1>
 
         <h2 className="description">Latest Blocks</h2>
 
