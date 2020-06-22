@@ -3,7 +3,7 @@ export default function Block() {
   return (
     <div className="container">
       <main>
-        <Link href="/block">
+        <Link href="/blockPage">
           <div className="home-link"> ← Go gack to Block 1</div>
         </Link>
         <h2 className="description">Transaction Detail</h2>
@@ -12,25 +12,29 @@ export default function Block() {
             <div className="tx-title">Hash</div>
             <div>0x342342....</div>
           </div>
-          <div className="status">
-            <div className="tx-title">Status</div>
-            <div>Succeed</div>
+          <div className="time-stamp">
+            <div className="tx-title">Time Stamp</div>
+            <div>45 secs ago (Jun-18-2020 09:42:47 AM +UTC)</div>
           </div>
           <div className="block-number">
             <div className="tx-title">Block Number</div>
             <div>1</div>
           </div>
-          <div className="time-stamp">
-            <div className="tx-title">Time Stamp</div>
-            <div>45 secs ago (Jun-18-2020 09:42:47 AM +UTC)</div>
-          </div>
           <div className="sender">
             <div className="tx-title">Sender</div>
             <div>0x34333bbw42....</div>
           </div>
-          <div className="recepient">
-            <div className="tx-title">Recepient</div>
+          <div className="state-object">
+            <div className="tx-title">State Object</div>
+            <div>Ownership(0x34333bbw4...)</div>
+          </div>
+          <div className="token-adderss">
+            <div className="tx-title">Token Address</div>
             <div>0x279087s543....</div>
+          </div>
+          <div className="range">
+            <div className="tx-title">Range</div>
+            <div>0-10</div>
           </div>
         </div>
       </main>
@@ -93,7 +97,8 @@ export default function Block() {
           padding: 0.5rem;
         }
         .tx-title {
-          width: 10rem;
+          width: 12rem;
+          font-weight: 600;
         }
         @media (max-width: 600px) {
           .block-list {
