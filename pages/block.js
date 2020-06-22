@@ -1,48 +1,30 @@
-import Head from "next/head";
 import Link from "next/link";
-
-export default function Home() {
+export default function Block() {
   return (
     <div className="container">
-      <Head>
-        <title>L2 Block Expolorer</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
-        <h1 className="title">Welcome to L2 Block Expolorer!</h1>
-
-        <h2 className="description">Latest Blocks</h2>
-
-        <div className="block-list">
-          <div className="block-title">
-            <div className="block-number">No.</div>
-            <div className="time-stamp">Time Stamp</div>
-            <div className="transactions">Transactions</div>
+        <h1 className="title">Transactions</h1>
+        <Link href="/">
+          <div className="home-link"> ← Go gack to block list </div>
+        </Link>
+        <h2 className="description">For Block 1</h2>
+        <div className="tx-list">
+          <div className="tx-title">
+            <div className="hash-title">Hash</div>
+            <div className="time-stamp-title">Time Stamp</div>
+            <div className="sender-title">From</div>
+            <div className="recepient-title">To</div>
           </div>
-          <Link href="/block">
-            <div className="block">
-              <div className="block-number">1</div>
-              <div className="time-stamp">
-                45 secs ago (Jun-18-2020 09:42:47 AM +UTC)
-              </div>
-              <div className="transactions">211 Transactions</div>
+          <div className="tx">
+            <div className="hash">0x342342....</div>
+            <div className="time-stamp">
+              45 secs ago (Jun-18-2020 09:42:47 AM +UTC)
             </div>
-          </Link>
+            <div className="sender">0x34333bbw42....</div>
+            <div className="recepient">0x279087s543....</div>
+          </div>
         </div>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -54,6 +36,7 @@ export default function Home() {
         }
 
         main {
+          width: 80%;
           padding: 5rem 0;
           flex: 1;
           display: flex;
@@ -90,53 +73,49 @@ export default function Home() {
           font-size: 4rem;
           text-align: center;
         }
-
+        .home-link:hover {
+          color: #0070f3;
+          border-color: #0070f3;
+          cursor: pointer;
+        }
         .description {
           width: 100;
           line-height: 1;
           font-size: 2rem;
         }
 
-        .block-list {
+        .tx-list {
           width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
         }
 
-        .block,
-        .block-title {
+        .tx,
+        .tx-title {
           display: flex;
           flex-basis: 45%;
           padding: 0 1rem;
-          text-align: left;
           color: inherit;
           text-decoration: none;
           border: 2px solid #eaeaea;
           transition: color 0.15s ease, border-color 0.15s ease;
         }
-
-        .block:hover,
-        .block:focus,
-        .block:active {
-          color: #0070f3;
-          border-color: #0070f3;
-          cursor: pointer;
+        .tx-title {
+          font-weight: 600;
         }
-
-        .block div,
-        .block-title div {
-          margin: 0.5rem;
-          font-size: 1.1rem;
-          line-height: 1.5;
+        .hash-title {
+          width: 10rem;
         }
-        .block-number {
-          width: 6rem;
+        .time-stamp-title {
+          width: 26rem;
         }
-        .time-stamp {
-          width: 30rem;
+        .sender-title {
+          width: 13rem;
         }
-
+        .tx {
+          justify-content: space-between;
+        }
         .logo {
           height: 1em;
         }
