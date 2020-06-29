@@ -1,48 +1,25 @@
-import Head from "next/head";
-import Link from "next/link";
+import Link from 'next/link'
+import Transaction from '../components/Transaction'
 
-export default function Home() {
+export default function Transactions() {
   return (
     <div className="container">
-      <Head>
-        <title>L2 Block Expolorer</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
-        <h1 className="title">Welcome to L2 Block Expolorer</h1>
-
-        <h2 className="description">Latest Blocks</h2>
-
-        <div className="block-list">
-          <div className="block-title">
-            <div className="block-number">No.</div>
-            <div className="time-stamp">Time Stamp</div>
-            <div className="transactions">Transactions</div>
+        <h1 className="title">Transactions</h1>
+        <Link href="/">
+          <div className="home-link"> ← Go gack to block list </div>
+        </Link>
+        <h2 className="description">For Block 1</h2>
+        <div className="tx-list">
+          <div className="tx-title">
+            <div className="hash-title">Hash</div>
+            <div className="time-stamp-title">Time Stamp</div>
+            <div className="sender-title">From</div>
+            <div className="state-object-title">To</div>
           </div>
-          <Link href="/block">
-            <div className="block">
-              <div className="block-number">1</div>
-              <div className="time-stamp">
-                45 secs ago (Jun-18-2020 09:42:47 AM +UTC)
-              </div>
-              <div className="transactions">211 Transactions</div>
-            </div>
-          </Link>
+          <Transaction />
         </div>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -54,6 +31,7 @@ export default function Home() {
         }
 
         main {
+          width: 80%;
           padding: 5rem 0;
           flex: 1;
           display: flex;
@@ -90,53 +68,41 @@ export default function Home() {
           font-size: 4rem;
           text-align: center;
         }
-
+        .home-link:hover {
+          color: #0070f3;
+          border-color: #0070f3;
+          cursor: pointer;
+        }
         .description {
           width: 100;
           line-height: 1;
           font-size: 2rem;
         }
-
-        .block-list {
+        .tx-list {
           width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
         }
-
-        .block,
-        .block-title {
+        .tx-title {
           display: flex;
           flex-basis: 45%;
           padding: 0 1rem;
-          text-align: left;
           color: inherit;
           text-decoration: none;
           border: 2px solid #eaeaea;
           transition: color 0.15s ease, border-color 0.15s ease;
+          font-weight: 600;
         }
-
-        .block:hover,
-        .block:focus,
-        .block:active {
-          color: #0070f3;
-          border-color: #0070f3;
-          cursor: pointer;
+        .hash-title {
+          width: 12rem;
         }
-
-        .block div,
-        .block-title div {
-          margin: 0.5rem;
-          font-size: 1.1rem;
-          line-height: 1.5;
+        .time-stamp-title {
+          width: 20rem;
         }
-        .block-number {
-          width: 6rem;
+        .sender-title {
+          width: 20rem;
         }
-        .time-stamp {
-          width: 30rem;
-        }
-
         .logo {
           height: 1em;
         }
@@ -164,5 +130,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  );
+  )
 }

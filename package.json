@@ -5,14 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
+    "axios": "^0.19.2",
     "next": "9.4.4",
+    "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-redux": "^7.2.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "miragejs": "^0.1.40"
+    "prettier": "^2.0.5"
   }
 }

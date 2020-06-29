@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from 'next/link'
 export default function Block() {
   return (
     <div className="container">
       <main>
-        <Link href="/blockPage">
+        <Link href="/transactions">
           <div className="home-link"> ← Go gack to Block 1</div>
         </Link>
         <h2 className="description">Transaction Detail</h2>
@@ -123,5 +123,5 @@ export default function Block() {
         }
       `}</style>
     </div>
-  );
+  )
 }

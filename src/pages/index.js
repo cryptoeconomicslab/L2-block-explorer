@@ -1,32 +1,39 @@
-import Link from "next/link";
-export default function Block() {
+import Head from "next/head"
+
+import Block from "../components/Block"
+
+export default function Home() {
   return (
     <div className="container">
+      <Head>
+        <title>L2 Block Expolorer</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <main>
-        <h1 className="title">Transactions</h1>
-        <Link href="/">
-          <div className="home-link"> ← Go gack to block list </div>
-        </Link>
-        <h2 className="description">For Block 1</h2>
-        <div className="tx-list">
-          <div className="tx-title">
-            <div className="hash-title">Hash</div>
-            <div className="time-stamp-title">Time Stamp</div>
-            <div className="sender-title">From</div>
-            <div className="recepient-title">To</div>
+        <h1 className="title">Welcome to L2 Block Expolorer</h1>
+        <h2 className="description">Latest Blocks</h2>
+        <div className="block-list">
+          <div className="block-title">
+            <div className="block-number">No.</div>
+            <div className="time-stamp">Time Stamp</div>
+            <div className="transactions">Transactions</div>
           </div>
-          <Link href="/transaction">
-            <div className="tx">
-              <div className="hash">0x342342....</div>
-              <div className="time-stamp">
-                45 secs ago (Jun-18-2020 09:42:47 AM +UTC)
-              </div>
-              <div className="sender">0x34333bbw42....</div>
-              <div className="recepient">0x279087s543....</div>
-            </div>
-          </Link>
+          <Block />
         </div>
       </main>
+
+      <footer>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{" "}
+          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+        </a>
+      </footer>
+
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -38,7 +45,6 @@ export default function Block() {
         }
 
         main {
-          width: 80%;
           padding: 5rem 0;
           flex: 1;
           display: flex;
@@ -75,56 +81,43 @@ export default function Block() {
           font-size: 4rem;
           text-align: center;
         }
-        .home-link:hover {
-          color: #0070f3;
-          border-color: #0070f3;
-          cursor: pointer;
-        }
+
         .description {
           width: 100;
           line-height: 1;
           font-size: 2rem;
         }
 
-        .tx-list {
+        .block-list {
           width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
         }
 
-        .tx,
-        .tx-title {
+        .block-title {
           display: flex;
           flex-basis: 45%;
           padding: 0 1rem;
+          text-align: left;
           color: inherit;
           text-decoration: none;
           border: 2px solid #eaeaea;
           transition: color 0.15s ease, border-color 0.15s ease;
         }
-        .tx:hover,
-        .tx:focus,
-        .tx:active {
-          color: #0070f3;
-          border-color: #0070f3;
-          cursor: pointer;
+
+        .block-title div {
+          margin: 0.5rem;
+          font-size: 1.1rem;
+          line-height: 1.5;
         }
-        .tx-title {
-          font-weight: 600;
+        .block-number {
+          width: 6rem;
         }
-        .hash-title {
-          width: 10rem;
+        .time-stamp {
+          width: 30rem;
         }
-        .time-stamp-title {
-          width: 26rem;
-        }
-        .sender-title {
-          width: 13rem;
-        }
-        .tx {
-          justify-content: space-between;
-        }
+
         .logo {
           height: 1em;
         }
@@ -152,5 +145,5 @@ export default function Block() {
         }
       `}</style>
     </div>
-  );
+  )
 }
