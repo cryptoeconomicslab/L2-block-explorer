@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { APIHOST } from '../const'
+import { TRANSACTIONS_ENDPOINT } from '../const'
 
 const Transaction = () => {
   const [transactions, setTransactions] = useState([])
   useEffect(() => {
     axios
-      .get(APIHOST + '/transactions')
+      .get(TRANSACTIONS_ENDPOINT)
       .then((res) => {
         setTransactions(res.data)
       })

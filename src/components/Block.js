@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { APIHOST } from '../const'
+import { BLOCKS_ENDPOINT } from '../const'
 
 const Block = () => {
   const [blocks, setBlocks] = useState([])
   useEffect(() => {
     axios
-      .get(APIHOST + '/blocks')
+      .get(BLOCKS_ENDPOINT)
       .then((res) => {
         setBlocks(res.data)
       })
