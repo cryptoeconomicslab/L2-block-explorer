@@ -1,6 +1,6 @@
-import Head from "next/head"
+import Head from 'next/head'
 
-import Block from "../components/Block"
+import Block from '../components/Block'
 
 export default function Home() {
   return (
@@ -29,7 +29,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Powered by{' '}
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
