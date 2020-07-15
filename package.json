@@ -5,14 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "export": "next build && next export",
+    "start": "next start",
+    "format": "prettier --write src"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "miragejs": "^0.1.40"
+    "prettier": "^2.0.5"
   }
 }

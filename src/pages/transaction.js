@@ -1,30 +1,41 @@
-import Link from "next/link";
+import Link from 'next/link'
 export default function Block() {
   return (
     <div className="container">
       <main>
-        <h1 className="title">Transactions</h1>
-        <Link href="/">
-          <div className="home-link"> ← Go gack to block list </div>
+        <Link href="/transactions">
+          <div className="home-link"> ← Go gack to Block 1</div>
         </Link>
-        <h2 className="description">For Block 1</h2>
-        <div className="tx-list">
-          <div className="tx-title">
-            <div className="hash-title">Hash</div>
-            <div className="time-stamp-title">Time Stamp</div>
-            <div className="sender-title">From</div>
-            <div className="recepient-title">To</div>
+        <h2 className="description">Transaction Detail</h2>
+        <div className="tx">
+          <div className="hash">
+            <div className="tx-title">Hash</div>
+            <div>0x342342....</div>
           </div>
-          <Link href="/transaction">
-            <div className="tx">
-              <div className="hash">0x342342....</div>
-              <div className="time-stamp">
-                45 secs ago (Jun-18-2020 09:42:47 AM +UTC)
-              </div>
-              <div className="sender">0x34333bbw42....</div>
-              <div className="recepient">0x279087s543....</div>
-            </div>
-          </Link>
+          <div className="time-stamp">
+            <div className="tx-title">Time Stamp</div>
+            <div>45 secs ago (Jun-18-2020 09:42:47 AM +UTC)</div>
+          </div>
+          <div className="block-number">
+            <div className="tx-title">Block Number</div>
+            <div>1</div>
+          </div>
+          <div className="sender">
+            <div className="tx-title">Sender</div>
+            <div>0x34333bbw42....</div>
+          </div>
+          <div className="state-object">
+            <div className="tx-title">State Object</div>
+            <div>Ownership(0x34333bbw4...)</div>
+          </div>
+          <div className="token-adderss">
+            <div className="tx-title">Token Address</div>
+            <div>0x279087s543....</div>
+          </div>
+          <div className="range">
+            <div className="tx-title">Range</div>
+            <div>0-10</div>
+          </div>
         </div>
       </main>
       <style jsx>{`
@@ -43,30 +54,6 @@ export default function Block() {
           flex: 1;
           display: flex;
           flex-direction: column;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
         }
 
         .title {
@@ -93,9 +80,11 @@ export default function Block() {
           justify-content: center;
         }
 
-        .tx,
-        .tx-title {
+        .tx {
           display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 1.2rem;
           flex-basis: 45%;
           padding: 0 1rem;
           color: inherit;
@@ -103,32 +92,14 @@ export default function Block() {
           border: 2px solid #eaeaea;
           transition: color 0.15s ease, border-color 0.15s ease;
         }
-        .tx:hover,
-        .tx:focus,
-        .tx:active {
-          color: #0070f3;
-          border-color: #0070f3;
-          cursor: pointer;
+        .tx div {
+          display: flex;
+          padding: 0.5rem;
         }
         .tx-title {
+          width: 12rem;
           font-weight: 600;
         }
-        .hash-title {
-          width: 10rem;
-        }
-        .time-stamp-title {
-          width: 26rem;
-        }
-        .sender-title {
-          width: 13rem;
-        }
-        .tx {
-          justify-content: space-between;
-        }
-        .logo {
-          height: 1em;
-        }
-
         @media (max-width: 600px) {
           .block-list {
             width: 100%;
@@ -152,5 +123,5 @@ export default function Block() {
         }
       `}</style>
     </div>
-  );
+  )
 }

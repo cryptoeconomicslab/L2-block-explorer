@@ -1,5 +1,6 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head'
+
+import Block from '../components/Block'
 
 export default function Home() {
   return (
@@ -11,24 +12,14 @@ export default function Home() {
 
       <main>
         <h1 className="title">Welcome to L2 Block Expolorer</h1>
-
         <h2 className="description">Latest Blocks</h2>
-
         <div className="block-list">
           <div className="block-title">
             <div className="block-number">No.</div>
             <div className="time-stamp">Time Stamp</div>
             <div className="transactions">Transactions</div>
           </div>
-          <Link href="/block">
-            <div className="block">
-              <div className="block-number">1</div>
-              <div className="time-stamp">
-                45 secs ago (Jun-18-2020 09:42:47 AM +UTC)
-              </div>
-              <div className="transactions">211 Transactions</div>
-            </div>
-          </Link>
+          <Block />
         </div>
       </main>
 
@@ -38,7 +29,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Powered by{' '}
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
@@ -104,7 +95,6 @@ export default function Home() {
           justify-content: center;
         }
 
-        .block,
         .block-title {
           display: flex;
           flex-basis: 45%;
@@ -116,15 +106,6 @@ export default function Home() {
           transition: color 0.15s ease, border-color 0.15s ease;
         }
 
-        .block:hover,
-        .block:focus,
-        .block:active {
-          color: #0070f3;
-          border-color: #0070f3;
-          cursor: pointer;
-        }
-
-        .block div,
         .block-title div {
           margin: 0.5rem;
           font-size: 1.1rem;
@@ -164,5 +145,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  );
+  )
 }
