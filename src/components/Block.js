@@ -19,7 +19,10 @@ const Block = () => {
     <div>
       {blocks.map((block) => {
         return (
-          <Link href="/transactions">
+          <Link
+            href={`/transactions?blockNumber=${block.blockNumber}`}
+            key={block.timestamp}
+          >
             <div className="block">
               <div className="block-number">{block.blockNumber}</div>
               <div className="time-stamp">{block.timestamp}</div>

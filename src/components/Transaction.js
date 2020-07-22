@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { TRANSACTIONS_ENDPOINT } from '../const'
 
-const Transaction = () => {
+const Transaction = ({ blockNumber }) => {
   const [transactions, setTransactions] = useState([])
   useEffect(() => {
     axios
-      .get(TRANSACTIONS_ENDPOINT)
+      .get(TRANSACTIONS_ENDPOINT(blockNumber))
       .then((res) => {
         setTransactions(res.data)
       })
@@ -19,12 +19,14 @@ const Transaction = () => {
     <div>
       {transactions.map((transaction) => {
         return (
-          <Link href="/transaction">
+          <Link href="/transaction" key={transaction.hash}>
             <div className="tx">
               <div className="hash">{transaction.hash}</div>
               <div className="time-stamp">{transaction.timestamp}</div>
               <div className="sender">{transaction.from}</div>
-              <div className="state-object">{transaction.stateObject}</div>
+              <div className="state-object-address">
+                {transaction.stateObject.address}
+              </div>
             </div>
           </Link>
         )
