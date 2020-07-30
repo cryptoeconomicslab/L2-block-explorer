@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Transaction from '../components/Transaction'
+import TransactionList from '../components/TransactionList'
 
 export default function Transactions() {
   const {
@@ -22,7 +22,7 @@ export default function Transactions() {
             <div className="sender-title">From</div>
             <div className="state-object-title">To</div>
           </div>
-          <Transaction blockNumber={blockNumber} />
+          <TransactionList blockNumber={blockNumber} />
         </div>
       </main>
       <style jsx>{`
