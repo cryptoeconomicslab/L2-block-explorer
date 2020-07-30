@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { TRANSACTIONS_ENDPOINT } from '../const'
 
-const Transaction = ({ blockNumber }) => {
+const TransactionList = ({ blockNumber }) => {
   const [transactions, setTransactions] = useState([])
   useEffect(() => {
     axios
@@ -19,7 +19,10 @@ const Transaction = ({ blockNumber }) => {
     <div>
       {transactions.map((transaction) => {
         return (
-          <Link href="/transaction" key={transaction.hash}>
+          <Link
+            href={`/transaction?blockNumber=${transaction.blockNumber}&depositContractAddress=${transaction.depositContractAddress}&start=${transaction.range.start}&end=${transaction.range.end}`}
+            key={transaction.hash}
+          >
             <div className="tx">
               <div className="hash">{transaction.hash}</div>
               <div className="time-stamp">{transaction.timestamp}</div>
@@ -61,4 +64,4 @@ const Transaction = ({ blockNumber }) => {
     </div>
   )
 }
-export default Transaction
+export default TransactionList
