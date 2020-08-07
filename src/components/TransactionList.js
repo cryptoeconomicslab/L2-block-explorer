@@ -20,7 +20,7 @@ const TransactionList = ({ blockNumber }) => {
       {transactions.map((transaction) => {
         return (
           <Link
-            href={`/transaction?blockNumber=${transaction.blockNumber}&depositContractAddress=${transaction.depositContractAddress}&start=${transaction.range.start}&end=${transaction.range.end}`}
+            href={`/transactions?blockNumber=${transaction.blockNumber}&depositContractAddress=${transaction.depositContractAddress}&start=${transaction.range.start}&end=${transaction.range.end}`}
             key={transaction.hash}
           >
             <div className="tx">
