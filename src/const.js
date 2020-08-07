@@ -1,6 +1,6 @@
 export const AGGREGATOR_ENDPOINT = process.env.AGGREGATOR_ENDPOINT
 export const TRANSACTIONS_ENDPOINT = (blockNumber) => {
-  return `${AGGREGATOR_ENDPOINT}/explorer/transaction?blockNumber=${blockNumber}`
+  return `${AGGREGATOR_ENDPOINT}/explorer/transactions?blockNumber=${blockNumber}`
 }
 export const TRANSACTION_ENDPOINT = (
   blockNumber,
