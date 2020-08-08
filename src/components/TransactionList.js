@@ -2,34 +2,40 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { TRANSACTIONS_ENDPOINT } from '../const'
+import { formatDateTime, formatAmount } from '../utils'
 
 const TransactionList = ({ blockNumber }) => {
   const [transactions, setTransactions] = useState([])
+  const [isFetched, setIsFetched] = useState(false)
+
   useEffect(() => {
+    if (isFetched || blockNumber === undefined) return
     axios
       .get(TRANSACTIONS_ENDPOINT(blockNumber))
       .then((res) => {
         setTransactions(res.data)
+        setIsFetched(true)
       })
       .catch((err) => {
         console.error(err)
       })
-  }, [])
+  })
   return (
     <div>
-      {transactions.map((transaction) => {
+      {transactions.map((transaction, i) => {
         return (
           <Link
             href={`/transaction?blockNumber=${transaction.blockNumber}&depositContractAddress=${transaction.depositContractAddress}&start=${transaction.range.start}&end=${transaction.range.end}`}
             key={transaction.hash}
           >
             <div className="tx">
-              <div className="hash">{transaction.hash}</div>
-              <div className="time-stamp">{transaction.timestamp}</div>
-              <div className="sender">{transaction.from}</div>
-              <div className="state-object-address">
-                {transaction.stateObject.address}
+              <div className="hash">{i}</div>
+              <div className="time-stamp">
+                {formatDateTime(transaction.timestamp)}
               </div>
+              <div className="amount">{formatAmount(transaction.range)}</div>
+              <div className="sender">{transaction.from}</div>
+              <div className="recipient">{transaction.stateObject.address}</div>
             </div>
           </Link>
         )
@@ -55,9 +61,15 @@ const TransactionList = ({ blockNumber }) => {
           width: 12rem;
         }
         .time-stamp {
-          width: 20rem;
+          width: 12rem;
+        }
+        .amount {
+          width: 12rem;
         }
         .sender {
+          width: 20rem;
+        }
+        .recipient {
           width: 20rem;
         }
       `}</style>
