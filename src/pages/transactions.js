@@ -6,7 +6,6 @@ export default function Transactions() {
   const {
     query: { blockNumber }
   } = useRouter()
-  console.log('aaa', blockNumber)
 
   return (
     <div className="container">
@@ -18,7 +17,7 @@ export default function Transactions() {
         <h2 className="description">For Block 1</h2>
         <div className="tx-list">
           <div className="tx-title">
-            <div className="hash-title">Index</div>
+            <div className="index-title">Index</div>
             <div className="time-stamp-title">Time Stamp</div>
             <div className="amount-title">Amount</div>
             <div className="sender-title">From</div>
@@ -101,7 +100,7 @@ export default function Transactions() {
           transition: color 0.15s ease, border-color 0.15s ease;
           font-weight: 600;
         }
-        .hash-title {
+        .index-title {
           width: 12rem;
         }
         .time-stamp-title {

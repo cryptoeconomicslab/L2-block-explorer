@@ -29,7 +29,7 @@ const TransactionList = ({ blockNumber }) => {
             key={transaction.hash}
           >
             <div className="tx">
-              <div className="hash">{i}</div>
+              <div className="index">{i}</div>
               <div className="time-stamp">
                 {formatDateTime(transaction.timestamp)}
               </div>
@@ -57,7 +57,7 @@ const TransactionList = ({ blockNumber }) => {
           border-color: #0070f3;
           cursor: pointer;
         }
-        .hash {
+        .index {
           width: 12rem;
         }
         .time-stamp {
