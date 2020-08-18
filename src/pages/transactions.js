@@ -17,10 +17,11 @@ export default function Transactions() {
         <h2 className="description">For Block 1</h2>
         <div className="tx-list">
           <div className="tx-title">
-            <div className="hash-title">Hash</div>
+            <div className="index-title">Index</div>
             <div className="time-stamp-title">Time Stamp</div>
+            <div className="amount-title">Amount</div>
             <div className="sender-title">From</div>
-            <div className="state-object-title">To</div>
+            <div className="recipient-title">To</div>
           </div>
           <TransactionList blockNumber={blockNumber} />
         </div>
@@ -99,13 +100,19 @@ export default function Transactions() {
           transition: color 0.15s ease, border-color 0.15s ease;
           font-weight: 600;
         }
-        .hash-title {
+        .index-title {
           width: 12rem;
         }
         .time-stamp-title {
-          width: 20rem;
+          width: 12rem;
+        }
+        .amount-title {
+          width: 12rem;
         }
         .sender-title {
+          width: 20rem;
+        }
+        .recipient-title {
           width: 20rem;
         }
         .logo {

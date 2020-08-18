@@ -9,7 +9,9 @@ const TransactionDetail = ({
   end
 }) => {
   const [transaction, setTransaction] = useState(DEFAULT_TRANSACTION_VALUE)
+  const [isFetched, setIsFetched] = useState(false)
   useEffect(() => {
+    if (isFetched || blockNumber === undefined) return
     axios
       .get(
         TRANSACTION_ENDPOINT(blockNumber, depositContractAddress, start, end)
@@ -19,6 +21,7 @@ const TransactionDetail = ({
           throw Error('Transaction not found.')
         }
         setTransaction(res.data)
+        setIsFetched(true)
       })
       .catch((err) => {
         console.error(err)
