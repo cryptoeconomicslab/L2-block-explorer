@@ -2,6 +2,11 @@ export const AGGREGATOR_ENDPOINT = process.env.AGGREGATOR_ENDPOINT
 export const TRANSACTIONS_ENDPOINT = (blockNumber) => {
   return `${AGGREGATOR_ENDPOINT}/explorer/transactions?blockNumber=${blockNumber}`
 }
+
+export const CHUNK_ENDPOINT = (blockNumber, chunkId) => {
+  return `${AGGREGATOR_ENDPOINT}/explorer/chunk?blockNumber=${blockNumber}&chunkId=${chunkId}`
+}
+
 export const TRANSACTION_ENDPOINT = (
   blockNumber,
   depositContractAddress,
@@ -10,6 +15,7 @@ export const TRANSACTION_ENDPOINT = (
 ) => {
   return `${AGGREGATOR_ENDPOINT}/explorer/transaction?blockNumber=${blockNumber}&depositContractAddress=${depositContractAddress}&start=${start}&end=${end}`
 }
+
 export const BLOCKS_ENDPOINT = AGGREGATOR_ENDPOINT + '/explorer/blocks'
 export const DEFAULT_TRANSACTION_VALUE = {
   hash: '',
