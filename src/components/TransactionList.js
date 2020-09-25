@@ -1,17 +1,25 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { TRANSACTIONS_ENDPOINT } from '../const'
+import { TRANSACTIONS_ENDPOINT, CHUNK_ENDPOINT } from '../const'
 import { formatDateTime, formatAmount } from '../utils'
 
-const TransactionList = ({ blockNumber }) => {
+function getEndpoint(blockNumber, chunkId) {
+  if (chunkId === undefined) {
+    return TRANSACTIONS_ENDPOINT(blockNumber)
+  }
+
+  return CHUNK_ENDPOINT(blockNumber, chunkId)
+}
+
+const TransactionList = ({ blockNumber, chunkId }) => {
   const [transactions, setTransactions] = useState([])
   const [isFetched, setIsFetched] = useState(false)
 
   useEffect(() => {
     if (isFetched || blockNumber === undefined) return
     axios
-      .get(TRANSACTIONS_ENDPOINT(blockNumber))
+      .get(getEndpoint(blockNumber, chunkId))
       .then((res) => {
         setTransactions(res.data)
         setIsFetched(true)

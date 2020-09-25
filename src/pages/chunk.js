@@ -4,17 +4,19 @@ import TransactionList from '../components/TransactionList'
 
 export default function Transactions() {
   const {
-    query: { blockNumber }
+    query: { blockNumber, chunkId }
   } = useRouter()
 
   return (
     <div className="container">
       <main>
-        <h1 className="title">Transactions</h1>
+        <h1 className="title">Chunk</h1>
         <Link href="/">
           <div className="home-link"> ← Go gack to block list </div>
         </Link>
-        <h2 className="description">For Block {blockNumber}</h2>
+        <h2 className="description">
+          Block: {blockNumber}, Chunk: {chunkId}
+        </h2>
         <div className="tx-list">
           <div className="tx-title">
             <div className="index-title">Index</div>
@@ -23,7 +25,7 @@ export default function Transactions() {
             <div className="sender-title">From</div>
             <div className="recipient-title">To</div>
           </div>
-          <TransactionList blockNumber={blockNumber} />
+          <TransactionList blockNumber={blockNumber} chunkId={chunkId} />
         </div>
       </main>
       <style jsx>{`
